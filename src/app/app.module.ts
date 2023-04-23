@@ -10,12 +10,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MainComponent } from './main/main.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ToolInformationComponent } from './tool-information/tool-information.component';
+import { ToolAddFormComponent } from './tool-add-form/tool-add-form.component';
+import { ToolsService } from './services/tools.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    DashboardComponent,
+    MainComponent,
+    NotFoundComponent,
+    ToolInformationComponent,
+    ToolAddFormComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +39,13 @@ import { HeaderComponent } from './header/header.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [
+    ToolsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
