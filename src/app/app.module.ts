@@ -14,7 +14,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ToolInformationComponent } from './tool-information/tool-information.component';
 import { ToolAddFormComponent } from './tool-add-form/tool-add-form.component';
@@ -24,7 +23,6 @@ import { ToolsService } from './services/tools.service';
   declarations: [
     AppComponent,
     DashboardComponent,
-    MainComponent,
     NotFoundComponent,
     ToolInformationComponent,
     ToolAddFormComponent
