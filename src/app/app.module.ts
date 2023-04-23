@@ -18,6 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ToolInformationComponent } from './tool-information/tool-information.component';
 import { ToolAddFormComponent } from './tool-add-form/tool-add-form.component';
 import { ToolsService } from './services/tools.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ToolsService } from './services/tools.service';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    HttpClientModule,
+    MatMenuModule,
+    FontAwesomeModule
   ],
   providers: [
     ToolsService
