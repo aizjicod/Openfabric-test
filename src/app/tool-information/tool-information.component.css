@@ -1,10 +1,9 @@
-.example-card {
-  max-width: 400px;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.tool-information {
+  max-width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #tool-info-section {
@@ -12,6 +11,19 @@
   justify-content: center;
   padding: 24px;
   position: relative;
+}
+
+#tool-information_header {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#tool-information_header #header-price {
+  position: absolute;
+  top: 50%;
+  left: 93%;
+  transform: translateY(-50%);
 }
 
 .back-btn {
@@ -25,4 +37,24 @@
   text-transform: capitalize;
 }
 
-/* <i class="fa-solid fa-turn-down-left" style="color: #673ab7;"></i> */
+.tool-information_img {
+  max-width: 400px;
+}
+
+.tool-information_description {
+  width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+
+  .tool-information_img {
+    max-width: 100%;
+  }
+
+  #tool-information_header #header-price {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+  }
+}
