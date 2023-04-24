@@ -1,1 +1,61 @@
-<p>tool-add-form works!</p>
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Add new tool</h1>
+    <form (ngSubmit)="onSubmit()" #toolForm="ngForm" id="tools-form">
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" class="form-control" id="title" required [(ngModel)]="tool.title" name="title"
+          #title="ngModel">
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          title is required
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Category</mat-label>
+        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category" name="category">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Tool's Image</mat-label>
+        <input matInput type="text" required class="form-control" id="img" [(ngModel)]="tool.img" name="img">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Description</mat-label>
+        <textarea matInput type="text" required class="form-control" id="description" [(ngModel)]="tool.description"
+          name="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" floatLabel="always" class="form-group">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" required class="form-control"
+          id="price" [(ngModel)]="tool.price" name="price">
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="btn btn-success" [disabled]="!toolForm.form.valid">Submit</button>
+      <button mat-raised-button type="button" class="btn btn-default" (click)="newTool(); toolForm.reset()">New Tool</button>
+    </form>
+  </div>
+</div>
+
+<!-- <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9">{{ model.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9">{{ model.alterEgo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9">{{ model.power }}</div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div> -->

@@ -8,12 +8,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: 'tool/:toolId', 
-    component: ToolInformationComponent,
-  },
-  {
     path: 'tool/new', 
     component: ToolAddFormComponent,
+  },
+  {
+    path: 'tool/:toolId', 
+    component: ToolInformationComponent,
   },
   {
     path: '', 

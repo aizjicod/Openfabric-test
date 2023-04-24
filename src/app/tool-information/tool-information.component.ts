@@ -14,7 +14,7 @@ export class ToolInformationComponent {
   icon;
   constructor(location: Location, service: ToolsService) {
     this.location = location;
-    this.tool = service.getItem();
+    this.tool = service.getItem(1);
     this.icon = faLeftLong
   }
 }
