@@ -1,5 +1,5 @@
 <div class="container">
-  <div [hidden]="submitted">
+  <div [hidden]="submitted" id="form-container">
     <h1>Add new tool</h1>
     <form (ngSubmit)="onSubmit()" #toolForm="ngForm" id="tools-form">
 
@@ -14,12 +14,13 @@
 
       <mat-form-field appearance="fill" class="form-group">
         <mat-label>Category</mat-label>
-        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category" name="category">
+        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category"
+          name="category">
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-group">
         <mat-label>Tool's Image</mat-label>
-        <input matInput type="text" required class="form-control" id="img" [(ngModel)]="tool.img" name="img">
+        <input matInput type="url" required class="form-control" id="img" [(ngModel)]="tool.img" name="img">
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-group">
@@ -35,9 +36,12 @@
         <span matTextPrefix>$&nbsp;</span>
         <span matTextSuffix>.00</span>
       </mat-form-field>
-
-      <button mat-raised-button color="primary" type="submit" class="btn btn-success" [disabled]="!toolForm.form.valid">Submit</button>
-      <button mat-raised-button type="button" class="btn btn-default" (click)="newTool(); toolForm.reset()">New Tool</button>
+      <div id="buttons-container">
+        <button mat-raised-button color="primary" type="submit" class="btn btn-success"
+          [disabled]="!toolForm.form.valid">Submit</button>
+        <button mat-raised-button type="button" class="btn btn-default" (click)="newTool(); toolForm.reset()">New
+          Tool</button>
+      </div>
     </form>
   </div>
 </div>
