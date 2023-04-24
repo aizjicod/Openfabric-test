@@ -8,11 +8,11 @@ import { ToolsService } from '../services/tools.service';
 })
 export class ToolAddFormComponent {
   tool = {
-    title: '',
-    img: '',
-    description: '',
-    category: '',
-    price: 0
+    title: 'dogo',
+    img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+    description: 'good dogo',
+    category: 'shibu',
+    price: 120
   }
   submitted = false
   constructor(
@@ -30,14 +30,13 @@ export class ToolAddFormComponent {
   }
 
   onSubmit() {
-    console.log(this.tool)
-    // this.service.addTool(this.tool)
-    // this.tool = {
-    //   title: '',
-    //   img: '',
-    //   description: '',
-    //   category: '',
-    //   price: 0
-    // }
+    this.service.addTool(this.tool)
+    this.tool = {
+      title: '',
+      img: '',
+      description: '',
+      category: '',
+      price: 0
+    }
   }
 }

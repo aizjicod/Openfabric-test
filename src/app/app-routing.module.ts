@@ -12,7 +12,7 @@ const routes: Routes = [
     component: ToolAddFormComponent,
   },
   {
-    path: 'tool/:toolId', 
+    path: 'tool/:id', 
     component: ToolInformationComponent,
   },
   {
