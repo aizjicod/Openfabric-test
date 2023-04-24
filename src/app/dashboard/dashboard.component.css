@@ -8,6 +8,7 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  padding: 16px 16px 0;
 }
 
 .more-button {
@@ -23,8 +24,13 @@
 .cards-img {
   aspect-ratio: 2/1;
   height: 200px;
+  border-radius: 12px;
 }
 
 .more-button {
   z-index: 20;
+}
+
+.mat-mdc-card-header {
+  padding: 0;
 }
