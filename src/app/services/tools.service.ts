@@ -51,10 +51,10 @@ export class ToolsService {
   }
 
   getItem(id:number) {
-    return this.tools[id]
+    return this.tools[id - 1]
   }
 
   addTool(tool: toolType) {
-    this.tools.push({ ...tool, id: this.tools.length - 1 })
+    this.tools.push({ ...tool, id: this.tools.length + 1 })
   }
 }
