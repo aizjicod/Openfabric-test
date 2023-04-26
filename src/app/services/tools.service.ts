@@ -38,4 +38,9 @@ export class ToolsService {
     };
     return this.http.post<toolType>(`${url}/new`,tool,httpOptions);
   }
+
+  updateTool(tool:toolType) {
+    return this.http.put<toolType>(`${url}/${tool._id}`,tool)
+    
+  }
 }

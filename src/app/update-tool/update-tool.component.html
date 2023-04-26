@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="back-btn">
+    <span (click)="location.back()">
+      <fa-icon [icon]="icon" />
+    </span>
+  </div>
+  <div [hidden]="submitted" id="form-container">
+    <h1>Add new tool</h1>
+    <form (ngSubmit)="onSubmit()" #toolForm="ngForm" id="tools-form">
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" class="form-control" id="name" required [(ngModel)]="tool.name" name="name"
+          #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          name is required
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Category</mat-label>
+        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category"
+          name="category">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Tool's Image</mat-label>
+        <input matInput type="url" required class="form-control" id="image" [(ngModel)]="tool.image" name="image">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Description</mat-label>
+        <textarea matInput type="text" required class="form-control" id="description" [(ngModel)]="tool.description"
+          name="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" floatLabel="always" class="form-group">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" required class="form-control"
+          id="price" [(ngModel)]="tool.price" name="price">
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+      <div id="buttons-container">
+        <button mat-raised-button color="primary" type="submit" class="btn btn-success"
+          [disabled]="!toolForm.form.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>You have changed the product!</h2>
+    <div class="back-btn">
+      <button mat-raised-button color="primary" type="submit" class="btn btn-success" (click)="location.back()">
+        Go Back
+      </button>
+    </div>
+  </div>
+</div>

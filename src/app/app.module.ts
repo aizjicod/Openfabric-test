@@ -23,6 +23,7 @@ import { ToolsService } from './services/tools.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { UpdateToolComponent } from './update-tool/update-tool.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     DashboardComponent,
     NotFoundComponent,
     ToolInformationComponent,
-    ToolAddFormComponent
+    ToolAddFormComponent,
+    UpdateToolComponent
   ],
   imports: [
     MatInputModule,

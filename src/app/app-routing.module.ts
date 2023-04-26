@@ -5,8 +5,13 @@ import { ToolInformationComponent } from './tool-information/tool-information.co
 import { ToolAddFormComponent } from './tool-add-form/tool-add-form.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UpdateToolComponent } from './update-tool/update-tool.component';
 
 const routes: Routes = [
+  {
+    path: 'tool/update/:id', 
+    component: UpdateToolComponent,
+  },
   {
     path: 'tool/new', 
     component: ToolAddFormComponent,

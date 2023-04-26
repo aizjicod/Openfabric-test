@@ -11,6 +11,7 @@
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item [routerLink]="['tool', card._id]">More info</button>
+              <button mat-menu-item [routerLink]="['tool/update', card._id]">Update</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
