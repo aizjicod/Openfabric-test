@@ -5,13 +5,13 @@
     </span>
   </div>
 
-  <mat-card class="tool-information">
+  <mat-card class="tool-information" *ngIf="fetched">
     <mat-card-header id="tool-information_header">
-      <mat-card-title>{{ tool.title }}</mat-card-title>
+      <mat-card-title>{{ tool.name }}</mat-card-title>
       <mat-card-subtitle>{{ tool.category }}</mat-card-subtitle>
       <h2 id="header-price">{{ tool.price }}$</h2>
     </mat-card-header>
-    <img mat-card-image src="{{tool.img}}" alt="{{tool.title}}" class="tool-information_img">
+    <img mat-card-image src="{{tool.image}}" alt="{{tool.name}}" class="tool-information_img">
     <mat-card-content class="tool-information_description">
       <mat-card-title>Description</mat-card-title>
       {{tool.description}}

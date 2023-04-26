@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export type toolType = {
@@ -27,7 +27,7 @@ export class ToolsService {
   }
 
   getItem(id:number) {
-    return this.tools[id - 1]
+    return this.http.get<toolType>(`${url}/${id}`)
   }
 
   addTool(tool: toolType): Observable<{}> {

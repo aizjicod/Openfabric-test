@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ToolInformationComponent implements OnInit {
   tool;
   icon;
-  id: number = 1;
+  id: number;
+  fetched = false;
 
   constructor(public location: Location,
     public service: ToolsService,
@@ -19,11 +20,13 @@ export class ToolInformationComponent implements OnInit {
     ) {
     this.location = location;
     this.icon = faLeftLong
-    this.tool = this.service.getItem(1)
   }
   
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.tool = this.service.getItem(this.id)
+    this.service.getItem(this.id).subscribe(tool => {
+      this.tool = tool
+      this.fetched = true
+    })
   }
 }
