@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="back-btn">
+  <div class="back-btn" [hidden]="submitted">
     <span (click)="location.back()">
       <fa-icon [icon]="icon" />
     </span>
@@ -47,7 +47,7 @@
       </div>
     </form>
   </div>
-  <div [hidden]="!submitted">
+  <div [hidden]="!submitted" class="{{!submitted ? '': 'tool-succed-update'}}">
     <h2>You have changed the product!</h2>
     <div class="back-btn">
       <button mat-raised-button color="primary" type="submit" class="btn btn-success" (click)="location.back()">
