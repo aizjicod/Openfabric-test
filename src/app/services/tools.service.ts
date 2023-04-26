@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export type toolType = {
@@ -31,7 +30,19 @@ export class ToolsService {
     return this.tools[id - 1]
   }
 
-  addTool(tool: toolType) {
-    this.tools.push({ ...tool})
+  addTool(tool: toolType): Observable<{}> {
+    console.log(('tool'))
+    console.log((tool))
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    const res = this.http.post<toolType>(`https://test-backend-ezzv.onrender.com/tools/new`,tool,httpOptions)
+    res.subscribe(data => {
+      console.log('response')
+      console.log(data)
+    })
+    return res
   }
 }

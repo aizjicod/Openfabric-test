@@ -8,11 +8,11 @@ import { ToolsService } from '../services/tools.service';
 })
 export class ToolAddFormComponent {
   tool = {
-    name: 'dogo',
-    image: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-    description: 'good dogo',
-    category: 'shibu',
-    price: 120
+    name: '',
+    image: '',
+    description: '',
+    category: '',
+    price: 0
   }
   submitted = false
   constructor(
