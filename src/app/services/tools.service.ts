@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export type toolType = {
@@ -36,11 +36,10 @@ export class ToolsService {
         'Content-Type':  'application/json'
       })
     };
-    return this.http.post<toolType>(`${url}/new`,tool,httpOptions);
+    return this.http.post<toolType>(`${url}/new`,tool,httpOptions)
   }
 
   updateTool(tool:toolType) {
     return this.http.put<toolType>(`${url}/${tool._id}`,tool)
-    
   }
 }

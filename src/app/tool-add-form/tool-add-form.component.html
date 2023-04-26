@@ -14,19 +14,25 @@
 
       <mat-form-field appearance="fill" class="form-group">
         <mat-label>Category</mat-label>
-        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category"
+        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category" #category="ngModel"
           name="category">
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-group">
         <mat-label>Tool's Image</mat-label>
-        <input matInput type="url" required class="form-control" id="image" [(ngModel)]="tool.image" name="image">
+        <input matInput type="url" required class="form-control" id="image" [(ngModel)]="tool.image" name="image" #image="ngModel">
+        <div [hidden]="image.valid || image.pristine" class="alert alert-danger">
+          image is required
+        </div>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-group">
         <mat-label>Description</mat-label>
-        <textarea matInput type="text" required class="form-control" id="description" [(ngModel)]="tool.description"
+        <textarea #description="ngModel" matInput type="text" required class="form-control" id="description" [(ngModel)]="tool.description"
           name="description"></textarea>
+          <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            description is required
+          </div>
       </mat-form-field>
 
       <mat-form-field appearance="fill" floatLabel="always" class="form-group">
@@ -36,6 +42,9 @@
         <span matTextPrefix>$&nbsp;</span>
         <span matTextSuffix>.00</span>
       </mat-form-field>
+      <div [hidden]="!error" class="alert alert-danger">
+        {{error}}
+      </div>
       <div id="buttons-container">
         <button mat-raised-button color="primary" type="submit" class="btn btn-success"
           [disabled]="!toolForm.form.valid">Submit</button>
@@ -44,22 +53,15 @@
       </div>
     </form>
   </div>
-</div>
 
-<!-- <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Name</div>
-      <div class="col-xs-9">{{ model.name }}</div>
+  <div [hidden]="!submitted">
+    <h2>You have added a new product!</h2>
+    <div class="back-btn">
+      <button mat-raised-button color="primary" type="submit" class="btn btn-success" (click)="location.back()">
+        Go Back
+      </button>
+      <button mat-raised-button type="button" class="btn btn-default" (click)="newTool(); toolForm.reset()">New
+        Tool</button>
     </div>
-    <div class="row">
-      <div class="col-xs-3">Alter Ego</div>
-      <div class="col-xs-9">{{ model.alterEgo }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Power</div>
-      <div class="col-xs-9">{{ model.power }}</div>
-    </div>
-    <br>
-    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
-  </div> -->
+  </div>
+</div>
