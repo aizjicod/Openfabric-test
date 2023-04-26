@@ -1,0 +1,29 @@
+<div class="grid-container" *ngIf="fetched">
+  <h1 class="mat-h1">Items {{ getlength() }}</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile class="cards-container" *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.name}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item [routerLink]="['tool', card._id]">More info</button>
+              <button mat-menu-item [routerLink]="['tool/update', card._id]">Update</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <img src="{{ card.image }}" mat-card-image class="cards-img">
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <span>price: </span>
+            {{ card.price }}
+            <span>$</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

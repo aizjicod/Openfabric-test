@@ -1,0 +1,67 @@
+<div class="container">
+  <div [hidden]="submitted" id="{{submitted ? '': 'form-container'}}">
+    <h1>Add new tool</h1>
+    <form (ngSubmit)="onSubmit()" #toolForm="ngForm" id="tools-form">
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" class="form-control" id="name" required [(ngModel)]="tool.name" name="name"
+          #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          name is required
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Category</mat-label>
+        <input matInput type="text" required class="form-control" id="category" [(ngModel)]="tool.category" #category="ngModel"
+          name="category">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Tool's Image</mat-label>
+        <input matInput type="url" required class="form-control" id="image" [(ngModel)]="tool.image" name="image" #image="ngModel">
+        <div [hidden]="image.valid || image.pristine" class="alert alert-danger">
+          image is required
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Description</mat-label>
+        <textarea #description="ngModel" matInput type="text" required class="form-control" id="description" [(ngModel)]="tool.description"
+          name="description"></textarea>
+          <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            description is required
+          </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" floatLabel="always" class="form-group">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" required class="form-control"
+          id="price" [(ngModel)]="tool.price" name="price">
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+      <div [hidden]="!error" class="alert alert-danger">
+        {{error}}
+      </div>
+      <div id="buttons-container">
+        <button mat-raised-button color="primary" type="submit" class="btn btn-success"
+          [disabled]="!toolForm.form.valid">Submit</button>
+        <button mat-raised-button type="button" class="btn btn-default" (click)="newTool(); toolForm.reset()">New
+          Tool</button>
+      </div>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted" id="{{!submitted ? '': 'add-popup'}}">
+    <h2>You have added a new product!</h2>
+    <div class="back-btn">
+      <button mat-raised-button color="primary" type="submit" class="btn btn-success" (click)="location.back()">
+        Go Back
+      </button>
+      <button mat-raised-button type="button" class="btn btn-default" (click)="newTool(); toolForm.reset()">New
+        Tool</button>
+    </div>
+  </div>
+</div>
