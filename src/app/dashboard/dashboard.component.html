@@ -1,4 +1,4 @@
-<div class="grid-container">
+<div class="grid-container" *ngIf="fetched">
   <h1 class="mat-h1">Items {{ getlength() }}</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile class="cards-container" *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">

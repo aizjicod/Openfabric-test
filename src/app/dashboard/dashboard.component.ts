@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
   cards;
   items;
+  fetched: boolean = false;
   constructor(public service: ToolsService, private breakpointObserver: BreakpointObserver) {
   }
 
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnInit {
         })
       })
     )
+    this.fetched = true
   }
 
   getlength() {
