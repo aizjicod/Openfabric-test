@@ -8,8 +8,8 @@ import { ToolsService } from '../services/tools.service';
 })
 export class ToolAddFormComponent {
   tool = {
-    title: 'dogo',
-    img: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+    name: 'dogo',
+    image: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
     description: 'good dogo',
     category: 'shibu',
     price: 120
@@ -21,8 +21,8 @@ export class ToolAddFormComponent {
 
   newTool() {
     this.tool = {
-      title: '',
-      img: '',
+      name: '',
+      image: '',
       description: '',
       category: '',
       price: 0
@@ -32,8 +32,8 @@ export class ToolAddFormComponent {
   onSubmit() {
     this.service.addTool(this.tool)
     this.tool = {
-      title: '',
-      img: '',
+      name: '',
+      image: '',
       description: '',
       category: '',
       price: 0

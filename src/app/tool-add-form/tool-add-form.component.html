@@ -4,11 +4,11 @@
     <form (ngSubmit)="onSubmit()" #toolForm="ngForm" id="tools-form">
 
       <mat-form-field appearance="fill" class="form-group">
-        <mat-label>Title</mat-label>
-        <input matInput type="text" class="form-control" id="title" required [(ngModel)]="tool.title" name="title"
-          #title="ngModel">
-        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
-          title is required
+        <mat-label>Name</mat-label>
+        <input matInput type="text" class="form-control" id="name" required [(ngModel)]="tool.name" name="name"
+          #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          name is required
         </div>
       </mat-form-field>
 
@@ -20,7 +20,7 @@
 
       <mat-form-field appearance="fill" class="form-group">
         <mat-label>Tool's Image</mat-label>
-        <input matInput type="url" required class="form-control" id="img" [(ngModel)]="tool.img" name="img">
+        <input matInput type="url" required class="form-control" id="image" [(ngModel)]="tool.image" name="image">
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="form-group">

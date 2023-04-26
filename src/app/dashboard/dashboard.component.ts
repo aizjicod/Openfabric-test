@@ -1,19 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ToolsService } from '../services/tools.service';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
   cards;
   items;
-  constructor(service: ToolsService, private breakpointObserver: BreakpointObserver) {
-    this.items = service.getItems();
+  constructor(public service: ToolsService, private breakpointObserver: BreakpointObserver) {
+  }
+
+  ngOnInit() {
+    this.service.getItems().pipe(map((res) => {
+      const tools = [];
+      for (const key in res) {
+        if (res.hasOwnProperty(key)) {
+          tools.push({ ...res[key] })
+        }
+      }
+      return tools
+    }))
+      .subscribe((tools) => {
+        this.items = tools
+      });
     this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
       map(() => {
         return this.items.map(card => {
