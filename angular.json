@@ -93,6 +93,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/openfabric-test",
+            "netlifyToken": "HMAWvI0gPD7vS2y5C-DRWgOOJahW_pch7yucFauahtw",
+            "siteId": "723a77a8-b419-4e42-9a57-b6ffada0202b"
+          }
         }
       }
     }
