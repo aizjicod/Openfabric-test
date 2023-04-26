@@ -39,12 +39,7 @@ export class ToolAddFormComponent {
   }
 
   onSubmit() {
-    try {
       this.service.addTool(this.tool).subscribe()
-    } catch (error) {
-      console.log('errorrr')
-      console.log(error)
-      this.error = error;
-    }
+      this.submitted = true
   }
 }

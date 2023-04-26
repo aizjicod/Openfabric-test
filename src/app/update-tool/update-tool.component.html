@@ -4,7 +4,7 @@
       <fa-icon [icon]="icon" />
     </span>
   </div>
-  <div [hidden]="submitted" id="form-container">
+  <div [hidden]="submitted" id="{{submitted ? '': 'form-container'}}">
     <h1>Add new tool</h1>
     <form (ngSubmit)="onSubmit()" #toolForm="ngForm" id="tools-form">
 
