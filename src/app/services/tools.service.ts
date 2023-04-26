@@ -31,18 +31,11 @@ export class ToolsService {
   }
 
   addTool(tool: toolType): Observable<{}> {
-    console.log(('tool'))
-    console.log((tool))
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
-    const res = this.http.post<toolType>(`https://test-backend-ezzv.onrender.com/tools/new`,tool,httpOptions)
-    res.subscribe(data => {
-      console.log('response')
-      console.log(data)
-    })
-    return res
+    return this.http.post<toolType>(`${url}/new`,tool,httpOptions);
   }
 }
