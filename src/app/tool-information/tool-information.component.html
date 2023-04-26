@@ -14,7 +14,9 @@
     <img mat-card-image src="{{tool.image}}" alt="{{tool.name}}" class="tool-information_img">
     <mat-card-content class="tool-information_description">
       <mat-card-title>Description</mat-card-title>
-      {{tool.description}}
+      <p>
+        {{tool.description}}
+      </p>
       <div class="buttons-container">
         <button mat-raised-button color="primary" type="submit" class="btn btn-success"
         [disabled]="true">Add Cart!</button>

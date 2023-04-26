@@ -43,6 +43,18 @@
   width: 40%;
 }
 
+.tool-information_description p {
+  max-height: 300px;
+  overflow: hidden;
+  scroll-snap-align: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
 .buttons-container {
   margin-top: 12px;
 }
