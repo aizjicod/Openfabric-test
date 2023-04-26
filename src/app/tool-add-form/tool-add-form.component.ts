@@ -29,17 +29,12 @@ export class ToolAddFormComponent {
   }
 
   newTool() {
-    this.tool = {
-      name: '',
-      image: '',
-      description: '',
-      category: '',
-      price: 0
-    }
+    this.submitted = !this.submitted
   }
 
   onSubmit() {
-      this.service.addTool(this.tool).subscribe()
-      this.submitted = true
+      this.service.addTool(this.tool).subscribe(() => {
+        this.submitted = !this.submitted
+      })
   }
 }

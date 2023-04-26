@@ -54,7 +54,7 @@
     </form>
   </div>
 
-  <div [hidden]="!submitted">
+  <div [hidden]="!submitted" id="{{!submitted ? '': 'add-popup'}}">
     <h2>You have added a new product!</h2>
     <div class="back-btn">
       <button mat-raised-button color="primary" type="submit" class="btn btn-success" (click)="location.back()">
